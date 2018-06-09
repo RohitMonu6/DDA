@@ -1,0 +1,55 @@
+import java.util.Scanner;
+public class Sort
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter No. of rows ");
+        int r = in.nextInt();
+        System.out.print("Enter No. of Column ");
+        int c = in.nextInt();
+        int k = 0;
+        int arrs[] = new int[r*c];
+        int arr[][] = new int[r][c];
+        for(int i = 0;i<r;i++)
+        {
+            for(int j = 0;j<c;j++)
+            {
+                System.out.print("("+i+","+j+")-");
+                arr[i][j] = in.nextInt();
+                arrs[k] = arr[i][j];
+                k++;
+            } 
+        }
+        int index, sm=0;
+        for(int i = 0;i<arrs.length;i++)
+        {
+            index = i;
+            for(int j = i+1;j<arrs.length;j++)
+            {
+                if(arrs[j]<arrs[index])
+                    index = j;
+            }
+            sm = arrs[index];
+            arrs[index] = arrs[i];
+            arrs[i] = sm;
+        }
+        k = 0;
+        for(int i = 0;i<r;i++)
+        {
+            for(int j = 0;j<c;j++)
+            {
+                arr[i][j] = arrs[k];
+                k++;
+            } 
+        }
+        for(int i = 0;i<r;i++)
+        {
+            for(int j = 0;j<c;j++)
+            {
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
