@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Creating
+{
+  public static void main(String args[])
+  {
+      Scanner in = new Scanner(System.in);
+      int Arr[][] = new int[row][column];  //Array is created with 'row' no. of row and 'column' no. of column
+      
+      // To Feel the Array with Elements taken from user
+      for(int i = 0;i<row;i++)  //To control the row opreation  
+      {
+         for(int j = 0;j<column;j++)  //To control the Column opreation
+         { 
+//In short i will give the row value nd j will give the column value i.e. the element position to be feel. 
+            System.out.print("Enter the Element ")
+            arr[i][j] = in.nextInt();
+         }
+      }
+      //DDA Complete
+  }
+}
+
+Output
+1 2 3 4    |
+5 6 7 8    |--------- A DDA is stored
+8 9 4 5    |--------- Size : 4X4
+7 8 9 8    |
