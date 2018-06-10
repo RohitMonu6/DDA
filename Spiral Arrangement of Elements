@@ -1,0 +1,53 @@
+//To print elemnts in spiral format
+      1   2   3   4                          _______
+     12  13  14   5                           ____  |
+     11  16  15   6               ||Format-- |  __| |
+     10   9   8   7                          |______|
+
+import java.util.Scanner;
+public class Spiral_Matrix
+{
+    public static void main(String args[])
+    {
+        System.out.print("Enter the size");
+        int n = in.nextInt();
+        int arr[][] =new int[n][n];     \\DDA Sould be a Square Matrix
+        int mnrow = 0, mxrow = n-1;     \\ to manage the row decriment 
+        int mncol = 0, mxcol = n-1;     \\ to manage the column Decriment
+        int c = 1;  \\to fill the elements form 1 to n*n
+        while(c<=n*n)  \\ As we know that the no. to be fill will not go beyond the no. of elements
+        {
+            for(int i = mnrow;i<=mxcol;i++)   \\ to fill the elements from left to right i.e. -----> 
+            {
+                arr[mnrow][i] = c;
+                c++;
+            }
+            for(int i = mnrow+1;i<=mxrow;i++)  \\to fill the elements from up to down i.e. |
+            {                                                                              |
+                arr[i][mxcol]=c;                                                           |
+                c++;                                                                       v
+            }                                               
+            for(int i = mxcol-1;i>=mnrow;i--)  \\to fill the elements from right to left i.e. <-----
+            {
+                arr[mxrow][i] = c;
+                c++;
+            }
+            for(int i = mxrow-1;i>mncol;i--)  \\to fill the elements from down to up i.e.  ^
+            {                                                                              |
+                arr[i][mncol] = c;                                                         |
+                c++;                                                                       |
+            }
+            mnrow++;   //to increase the min row value so that loop start filling next row 
+            mxcol--;   //to decrease the max column value so that loop ends filling just 1 column earlier from left.
+            mxrow--;   //to decrease the max row value so that loop ends filling just one row above the last row. 
+            mncol++;  // to increase the min column value so that loop start filling from next column from right.
+        }
+        // Display
+        for(int i = 0;i<n;i++)
+        {
+            for(int j = 0;j<n;j++)
+                System.out.print(arr[i][j]+"\t");
+            System.out.println();    
+        }
+    }
+}
