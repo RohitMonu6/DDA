@@ -1,0 +1,62 @@
+//Here we will see how to add a given two matrix or DDA
+import java.util.Scanner;
+public class Matrix_Subtraction
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the Size of both Matrix");
+        System.out.print("Enter Numbers of row ");
+        int row = in.nextInt();
+        System.out.print("Enter Numbers of column ");
+        int column = in.nextInt();
+        int arr[][] = new int[row][column];           //1st DDA Created with size 'row' no. of row and 'column' no. of column
+        int arr2[][] = new int[row][column];         //2nd DDA Created with same size 'row' no. of row and 'column' no. of column
+        System.out.println("Fill the first DDA or Matrix");   // Filling of 1st DDA from user
+        for(int i = 0;i<row;i++)             // Row controller
+        {
+            for(int j = 0;j<column;j++)      // Column controller
+            {
+              System.out.print("("+i+","+j+") ");     //To print in format of (row,column) i.e. (0,0) or (1,0)
+              arr[i][j] = in.nextInt();
+            }
+        }
+        System.out.println("Fill the second DDA or Matrix")   //Filling 2nd DDA from user
+        for(int i = 0;i<row;i++)       //Row controller
+        {
+            for(int j = 0;j<column;j++)    // Column controller
+            {
+              System.out.print("("+i+","+j+") ");  //To print in format of (row,column) i.e. (0,0) or (1,0)
+              arr2[i][j] = in.nextInt();
+            }
+        }
+        //Addition Begins
+        int subtr[][] = new int[row][column];  // 3rd DDA to Store the DDA's Subtracted value
+        for(int i = 0;i<row;i++)      // Row controller
+        {
+            for(int j = 0;j<column;j++)  // Column controller
+            {
+                subtr[i][j] = arr[i][j] - arr2[i][j];   // To store in same position
+            }
+        }
+        // Display
+        for(int i = 0;i<row;i++)    // Row Controller
+        {
+            for(int j = 0;j<column;j++)   // Column Controller
+            {
+              System.out.print(subtr[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+Working of Program
+        1st Input            2nd Input                  Processing             Output
+        ---------            ---------                  ----------             ------
+         1  5  9              5  9  9               (1-5)  (5-9)  (9-9)      -4  -4   0
+         2  6  0              6  5  5               (2-6)  (6-5)  (0-5)      -4   1  -5
+arr ---  3  7  8   |arr2 ---  8  6  7   |subtr ---  (3-8)  (7-6)  (8-7)      -5   1   1
+         4  8  7              7  1  2               (4-7)  (8-1)  (7-2)      -3   7   5
