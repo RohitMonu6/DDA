@@ -1,0 +1,55 @@
+//Row wise sorting od DDA
+
+  1  6  9                   1  6  9
+  8  6  3         output--  3  6  8
+  2  6  1                   1  2  6
+  
+  import java.util.Scanner;
+public class Sort_Row
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter No. of Row ");   //To take the size of rows
+        int r = in.nextInt();
+        System.out.print("Enter No. of column ");  // To take the size of columns
+        int c = in.nextInt();
+        int arr[][] = new int[r][c];   //Constructing a DDA of 'r' no. of ror nad 'c' no. of column
+        for(int i = 0;i<r;i++)        // Filling DDA from user
+        {
+            for(int j = 0;j<c;j++)
+            {
+                System.out.print("("+i+","+j+")-");
+                arr[i][j] = in.nextInt();
+            } 
+        }
+        int min, temp;          // min = to store the minimum value || temp = a temporary variable use while swapping            
+        for(int i = 0;i<r;i++)
+        {
+            for(int j = 0;j<c;j++)     // Normal a Selection sort coding
+            {
+                min = j;
+                for(int k = j;k<c;k++)
+                {
+                    if(arr[i][k]<arr[i][min])
+                    {
+                        min = k;
+                    }
+                }    
+                temp = arr[i][j];                 //Swapping technique
+                arr[i][j] = arr[i][min];
+                 arr[i][min] = temp;
+            }
+        }
+        System.out.println("Sorted array:");
+        //Display
+        for(int i = 0;i<r;i++)
+        {
+            for(int j = 0;j<c;j++)
+            {
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
