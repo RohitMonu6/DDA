@@ -1,0 +1,38 @@
+// Program to print digonal Elements
+   Input                       Output
+   -----                       ------ 
+  1  2  3                     1     3
+  2  3  1    | Processing |      3
+  3  2  1                     3     1
+-------------------------------------------------------------------- 
+import java.util.Scanner;
+public class Diagonal
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter size of square ");  //As digonal can only be formed in square matrix
+        int n = in.nextInt();
+        int arr[][] = new int[n][n];     // Creation of square DDA
+        System.out.println("Enter the Elements");
+        for(int i = 0;i<n;i++)           //Filling of element from user
+        {
+            for(int j = 0;j<n;j++)
+            {
+                System.out.print("("+i+","+j+") - ");
+                arr[i][j] = in.nextInt();
+            }
+        }
+        for(int i = 0;i<n;i++)
+        {
+            for(int j = 0;j<n;j++)
+            {
+                if(i==j||(i+j)==(n-1))          //to check the digonal element
+                    System.out.print(arr[i][j]);    //Printing of digonal element
+                else 
+                    System.out.print(" ");     // to print in digonally
+            }
+            System.out.println();     // to display next row
+        }
+    }
+}
